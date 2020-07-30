@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>BOT</title>
+</head>
+<body>
+
+<h1>Soporte al Agente</h1>
+
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="BotPureCloudGenesys"
+  agent-id="7792893e-4ed6-492b-b12f-df975af455e9"
+  language-code="es"
+></df-messenger>
+
+
+</body>
+</html>
