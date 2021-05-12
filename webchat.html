@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/chpkaocjjopjgclkahflonfkhdhkdenh" data-domain="www.example.com">
+  </head>
+  <body onload="onloaded()">
+        <div id="before">
+            Branding content goes here.<br/>
+            This is on the customer's own web site.<br/>
+            The form is an embedded iframe that's coming from ININ.<br/>
+        </div>
+        <div id="screenshareContainer"></div>
+        <div id="after">
+            Content of customer's website below iframe/form<br />
+            Content of customer's website below iframe/form<br />
+            Content of customer's website below iframe/form<br />
+        </div>
+
+
+<script src="https://apps.mypurecloud.com/webchat/jsapi-v1.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+       let chatConfig = {
+  "webchatAppUrl": "https://apps.mypurecloud.com/webchat",
+  "webchatServiceUrl": "https://realtime.mypurecloud.com:443",
+  "orgId": "17232",
+  "orgName": "bbvafrances",
+  "queueName": "prueba_bbva_frances",
+  "logLevel": "DEBUG",
+  "locale": "en",
+  "data": {
+    "firstName": "Juan",
+    "lastName": "Jaramillo",
+    "addressStreet": "",
+    "addressCity": "",
+    "addressPostalCode": "",
+    "addressState": "",
+    "phoneNumber": ""
+  },
+  "companyLogo": {
+    "width": 600,
+    "height": 149,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/789/assets/images/PC-blue-nomark.png"
+  },
+  "companyLogoSmall": {
+    "width": 25,
+    "height": 25,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/789/assets/images/companylogo.png"
+  },
+  "agentAvatar": {
+    "width": 462,
+    "height": 462,
+    "url": "https://d3a63qt71m2kua.cloudfront.net/developer-tools/789/assets/images/agent.jpg"
+  },
+  "welcomeMessage": "Thanks for chatting using the dev tools chat page.",
+  "cssClass": "webchat-frame",
+  "css": {
+    "width": "100%",
+    "height": "100%"
+  }
+  
+                 // Deployment key for your cobrowse deployment from PureCloud admin UI
+                "cobrowseConfig": {
+                    "deploymentKey": "s9av9rsFnz8YmsI6Da6kllyaA73CKW2o",
+                }
+};
+                    
+ININ.webchat.create(chatConfig, function(err, webchat) {
+    if (err) {
+        console.error(err);
+        throw err;
+    }
+
+    webchat.renderPopup({
+        width: 400,
+        height: 400,
+        title: 'Chat'
+    });
+});
+    </script>
+  </body>
+  </html>
