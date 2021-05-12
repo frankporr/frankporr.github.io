@@ -1,33 +1,23 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <title>Genesys Cloud Web Chat Demo</title>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Simple co-browse with chat example</title>
 </head>
-
 <body>
-    <form id="chatForm">
-        <h3>Participant Information- local</h3>
 
-        <table class="webchat-config">
-            <tbody>
-                <tr>
-                    <th>First Name:</th>
-                    <td><input type="text" id="first-name" value="John" /></td>
-                </tr>
-                <tr>
-                    <th>Last Name:</th>
-                    <td><input type="text" id="last-name" value="Doe" /></td>
-                </tr>
-                <tr>
-                    <th>Agent Email:</th>
-                    <td><input type="text" id="agent-email" value="alex.agent@example.com" /></td>
-                </tr>
-            </tbody>
-        </table>
+    <h1>Simple co-browse with chat example</h1>
+    <form>
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" size="20" value="Joe" />
+
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" size="20" value="Customer" />
+
+        <label for="agentEmail">Agent Email</label>
+        <input type="text" id="agentEmail" size="20" value="alex.agent@example.com" />
+
         <button type="button" id="start-chat" onclick="genesysWebchat.startEmbeddedChat()">Start Embedded Chat</button>
-
+        
 <script
   id="purecloud-webchat-js"
   type="text/javascript"
@@ -36,10 +26,6 @@
   org-guid="c8bb9493-2b8c-415a-b7b1-44cef16960f8"
   deployment-key="c267637f-993c-4ae4-b7bf-c417faf9e23e"
 ></script>
-    
-    <script type="text/javascript">
-
-$(document).ready(function initializeChat () {
 let chatConfig = {
   "webchatAppUrl": "https://apps.mypurecloud.com/webchat",
   "webchatServiceUrl": "https://realtime.mypurecloud.com:443",
