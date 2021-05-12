@@ -27,9 +27,7 @@
             </tbody>
         </table>
         <button type="button" id="start-chat" onclick="genesysWebchat.startEmbeddedChat()">Start Embedded Chat</button>
-    </form>
-    <div id="chat-container" style="height:600px"></div>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
 <script
   id="purecloud-webchat-js"
   type="text/javascript"
@@ -87,17 +85,33 @@ let chatConfig = {
     "width": "100%",
     "height": "100%"
   }
-};
+},
 
-ININ.webchat.create(chatConfig, function(err, webchat) {
-    if (err) {
-        console.error(err);
-        throw err;
-    }
+                // Deployment key for your cobrowse deployment from PureCloud admin UI
+                "cobrowseConfig": {
+                    "deploymentKey": "s9av9rsFnz8YmsI6Da6kllyaA73CKW2o",
+                }
+            };
+        }
+        return {
+            startEmbeddedChat: function() {
+                let chatConfig = createChatConfig();
+                ININ.webchat.create(chatConfig, function(err, webchat) {
+                    if (err) {
+                        console.error('Unable to share page', (err.stack || err));
+                        return;
+                    }
 
-    webchat.renderPopup({
-        width: 400,
-        height: 400,
-        title: 'Chat'
-    });
-});
+                    //Render to frame
+                    webchat.renderFrame({
+                        containerEl: 'chatContainer'
+                    });
+
+                });
+            }
+        }
+    })();
+    </script>
+
+</body>
+</html>
