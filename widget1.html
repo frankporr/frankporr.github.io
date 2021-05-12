@@ -48,12 +48,12 @@ let chatConfig = {
   "orgId": "30907",
   "orgGuid": "c8bb9493-2b8c-415a-b7b1-44cef16960f8",
   "orgName": "latamps",
-  "queueName": "",
+  "queueName": "LATAM Assisted Operations",
   "logLevel": "DEBUG",
   "locale": "en",
   "data": {
-    "firstName": "",
-    "lastName": "",
+    "firstName": "Franklin",
+    "lastName": "Porras",
     "addressStreet": "",
     "addressCity": "",
     "addressPostalCode": "",
@@ -87,29 +87,17 @@ let chatConfig = {
     "width": "100%",
     "height": "100%"
   }
-  },
-    // Deployment key for your cobrowse deployment from Genesys Cloud admin UI
-        "cobrowseConfig": {
-                    "deploymentKey": "s9av9rsFnz8YmsI6Da6kllyaA73CKW2o",
-               }
-}; 
+};
 
-    ININ.cobrowse.create(chatConfig, function(err, webchat) {
-        if (err) {
-            //console.log(err);
-            throw err;
-        }
-
+ININ.webchat.create(chatConfig, function(err, webchat) {
+    if (err) {
+        console.error(err);
+        throw err;
+    }
 
     webchat.renderPopup({
         width: 400,
         height: 400,
-        title: 'Chat',
-        newTab: true
+        title: 'Chat'
     });
 });
-       } )     
-    </script>
-
-</body>
-</html>
